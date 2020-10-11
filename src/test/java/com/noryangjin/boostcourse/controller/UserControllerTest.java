@@ -1,5 +1,6 @@
 package com.noryangjin.boostcourse.controller;
 
+import com.noryangjin.boostcourse.domain.User;
 import com.noryangjin.boostcourse.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,18 +29,18 @@ public class UserControllerTest {
     @Test
     public void userEmailCheck() throws Exception{
 
-        String request = "kimmy@connect.co.kr2";
+        String request = "kimmy@connect.co.kr";
 
         String failResult = "그런건 없어용";
 
         String successResult = request + " 님이 있어용";
 
-        given(userService.checkEmail(request))
-                .willReturn(null);
+        //given(userService.checkEmail(request))
+                //.willReturn(null);
 
-        final ResultActions actions = mvc.perform(get("/user?email=kimmy@connect.co.kr2"))
+        final ResultActions actions = mvc.perform(get("/user?email=kimmy@connect.co.kr"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(failResult));
+                .andExpect(content().string(successResult));
 
     }
 }

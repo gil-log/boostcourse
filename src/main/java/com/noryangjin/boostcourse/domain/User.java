@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@Setter
 @ToString
 @Table(name = "user")
 @Entity
@@ -34,6 +33,5 @@ public class User {
     private LocalDateTime create_date;
 
     private LocalDateTime modify_date;
-
 
 }

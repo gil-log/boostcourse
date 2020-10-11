@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
@@ -17,15 +17,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    UserController(UserService userService){
-//
-//        this.userService = userService;
-//
-//    }
-
     @GetMapping
-    @ResponseBody
-    public String checkEmail(@RequestParam("email") String email) throws Exception {
+    public String checkEmail(String email) throws Exception {
 
         logger.info("call checkEmailController");
 
@@ -41,8 +34,5 @@ public class UserController {
             return result;
         }
     }
-
-
-
 
 }
