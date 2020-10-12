@@ -15,7 +15,6 @@ public class UserService {
     @Autowired
     UserRepository userRepo;
 
-
     public User checkEmail(String email){
         logger.info("checkEmail() 실행");
 

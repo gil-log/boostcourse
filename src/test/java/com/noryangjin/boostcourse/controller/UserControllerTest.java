@@ -29,11 +29,13 @@ public class UserControllerTest {
     @Test
     public void userEmailCheck() throws Exception{
 
-        String request = "kimmy@connect.co.kr";
+        String request = "carami@connect.co.kr";
 
         String failResult = "그런건 없어용";
 
         String successResult = request + " 님이 있어용";
+
+        String role = "";
 
         //given(userService.checkEmail(request))
                 //.willReturn(null);
@@ -43,4 +45,6 @@ public class UserControllerTest {
                 .andExpect(content().string(successResult));
 
     }
+
+
 }

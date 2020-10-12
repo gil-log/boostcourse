@@ -1,6 +1,8 @@
 package com.noryangjin.boostcourse.controller;
 
 import com.noryangjin.boostcourse.domain.User;
+import com.noryangjin.boostcourse.domain.UserRole;
+import com.noryangjin.boostcourse.service.UserRoleService;
 import com.noryangjin.boostcourse.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    UserRoleService userRoleService;
+
     @GetMapping
     public String checkEmail(String email) throws Exception {
 
@@ -24,15 +29,19 @@ public class UserController {
 
         User userResult = userService.checkEmail(email);
 
+        UserRole userRole = userRoleService.checkUserRole(userResult.getId());
+
         String result = "";
 
         if(userResult == null){
             result = "그런건 없어용";
             return result;
         } else {
-            result = userResult.getEmail() + " 님이 있어용";
+            result = userResult.getEmail() + " 님이 있어용 " + "직책은 " + userRole.getRole_name() + " 시네요 ㄷ";
             return result;
         }
     }
+
+
 
 }

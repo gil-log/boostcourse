@@ -12,7 +12,8 @@ public class UserRole {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
+
 
     @Column(length = 11, unique = true)
     private int user_id;
@@ -20,5 +21,8 @@ public class UserRole {
     @Column(nullable = false)
     private String role_name;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
