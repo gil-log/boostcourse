@@ -29,7 +29,11 @@ public class UserController {
 
         User userResult = userService.checkEmail(email);
 
-        UserRole userRole = userRoleService.checkUserRole(userResult.getId());
+        UserRole userRole = new UserRole();
+
+        if ( userResult != null) {
+             userRole = userRoleService.checkUserRole(userResult.getId());
+        }
 
         String result = "";
 

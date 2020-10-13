@@ -1,6 +1,8 @@
 package com.noryangjin.boostcourse.controller;
 
 import com.noryangjin.boostcourse.domain.User;
+import com.noryangjin.boostcourse.domain.UserRole;
+import com.noryangjin.boostcourse.service.UserRoleService;
 import com.noryangjin.boostcourse.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,14 +28,21 @@ public class UserControllerTest {
     @MockBean
     private UserService userService;
 
+    @MockBean
+    private UserRoleService userRoleService;
+
     @Test
     public void userEmailCheck() throws Exception{
 
-        String request = "carami@connect.co.kr";
+        String request = "kimmy@connect.co.kr";
 
         String failResult = "그런건 없어용";
 
-        String successResult = request + " 님이 있어용";
+        User user = userService.checkEmail(request);
+
+        UserRole userRole = userRoleService.checkUserRole(user.getId());
+
+        String successResult = request + " 님이 있어용 직책은 " + userRole.getRole_name() + " 시네요 ㄷ";
 
         String role = "";
 

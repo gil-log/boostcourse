@@ -15,7 +15,6 @@ public class User {
 
     @Id
     @GeneratedValue
-    @Column(name="user_id")
     private long id;
 
     @Column(nullable = false)
