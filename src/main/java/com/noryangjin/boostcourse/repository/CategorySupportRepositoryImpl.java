@@ -8,9 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional(readOnly = true)
-public class CategoryRepositoryImpl extends QuerydslRepositorySupport implements CategoryRepositoryCustom {
+public class CategorySupportRepositoryImpl extends QuerydslRepositorySupport implements CategorySupportRepository {
 
-    public CategoryRepositoryImpl(){
+    public CategorySupportRepositoryImpl(){
         super(Category.class);
     }
 

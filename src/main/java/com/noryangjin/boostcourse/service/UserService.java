@@ -15,10 +15,10 @@ public class UserService {
     @Autowired
     UserRepository userRepo;
 
-    public User checkEmail(String email){
+    public String checkEmail(String email){
         logger.info("checkEmail() 실행");
 
-        User userResult = userRepo.findByEmail(email);
+        String userResult = userRepo.findByEmail(email);
 
         return userResult;
     }

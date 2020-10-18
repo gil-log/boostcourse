@@ -8,11 +8,19 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.Table;
 
-@Component
-@Data
 public class CategoryDTO {
 
-    private long id;
-    private String name;
+    @Getter
+    public static class Categories{
+
+        private Long id;
+        private String name;
+
+        public Categories(Category category){
+            this.id = category.getId();
+            this.name = category.getName();
+        }
+
+    }
 
 }

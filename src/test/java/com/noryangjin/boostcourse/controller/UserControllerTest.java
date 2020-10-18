@@ -1,8 +1,6 @@
 package com.noryangjin.boostcourse.controller;
 
 import com.noryangjin.boostcourse.domain.User;
-import com.noryangjin.boostcourse.domain.UserRole;
-import com.noryangjin.boostcourse.service.UserRoleService;
 import com.noryangjin.boostcourse.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,9 +26,6 @@ public class UserControllerTest {
     @MockBean
     private UserService userService;
 
-    @MockBean
-    private UserRoleService userRoleService;
-
     @Test
     public void userEmailCheck() throws Exception{
 
@@ -38,22 +33,14 @@ public class UserControllerTest {
 
         String failResult = "그런건 없어용";
 
-        User user = userService.checkEmail(request);
+        String successResult = request + " 님이 있어용";
 
-        UserRole userRole = userRoleService.checkUserRole(user.getId());
-
-        String successResult = request + " 님이 있어용 직책은 " + userRole.getRole_name() + " 시네요 ㄷ";
-
-        String role = "";
-
-        //given(userService.checkEmail(request))
-                //.willReturn(null);
+        given(userService.checkEmail(request))
+                .willReturn();
 
         final ResultActions actions = mvc.perform(get("/user?email=kimmy@connect.co.kr"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(successResult));
 
     }
-
-
 }

@@ -1,14 +1,13 @@
 package com.noryangjin.boostcourse.domain;
 
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
-@ToString
-@Table
+@Table(name = "category")
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Category {
 
     @Id
@@ -17,5 +16,10 @@ public class Category {
 
     @Column(length = 50)
     private String name;
+
+    @Builder
+    public Category(String name){
+        this.name = name;
+    }
 
 }

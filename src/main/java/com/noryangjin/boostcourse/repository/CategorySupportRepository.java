@@ -4,7 +4,7 @@ import com.noryangjin.boostcourse.domain.Category;
 
 import java.util.List;
 
-public interface CategoryRepositoryCustom {
+public interface CategorySupportRepository {
 
     public List<Category> findAllCategories();
 
