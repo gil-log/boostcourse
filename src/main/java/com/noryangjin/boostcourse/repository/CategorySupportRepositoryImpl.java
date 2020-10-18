@@ -18,6 +18,6 @@ public class CategorySupportRepositoryImpl extends QuerydslRepositorySupport imp
     public List<Category> findAllCategories() {
         final QCategory category = QCategory.category;
         return from(category)
-                .fetch();
+                .fetchAll().fetch();
     }
 }

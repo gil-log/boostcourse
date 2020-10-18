@@ -20,9 +20,8 @@ public class CategoryService {
 
     public List<Category> findAllCategories(){
 
-        List<Category> category = new List<Category>();
-
-
+        logger.info("CategoryService > findAllCategories()");
+        List<Category> category = categoryRepo.findAllCategories();
 
         return category;
     }
