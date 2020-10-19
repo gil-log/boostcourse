@@ -36,7 +36,7 @@ public class UserControllerTest {
         String successResult = request + " 님이 있어용";
 
         given(userService.checkEmail(request))
-                .willReturn();
+                .willReturn(failResult);
 
         final ResultActions actions = mvc.perform(get("/user?email=kimmy@connect.co.kr"))
                 .andExpect(status().isOk())

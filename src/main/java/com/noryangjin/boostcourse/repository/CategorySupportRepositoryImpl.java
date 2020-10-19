@@ -20,4 +20,12 @@ public class CategorySupportRepositoryImpl extends QuerydslRepositorySupport imp
         return from(category)
                 .fetchAll().fetch();
     }
+
+    @Override
+    public long CategoriesSize(){
+        final QCategory category = QCategory.category;
+        return from(category)
+                .select(category.count())
+                .fetchCount();
+    }
 }

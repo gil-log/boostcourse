@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -19,19 +21,18 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public List<CategoryDTO> getAllCategoires(){
+    public Map getAllCategoires(){
 
-        List<Category> categories = categoryService.findAllCategories();
+        List<CategoryDTO.Categories> categories = categoryService.findAllCategories();
 
-        Iterator<Category> categoryIterator = categories.iterator();
+        Long categoriesSize = categoryService.CategoriesSize();
 
-        List<CategoryDTO> categoriesDTO = new List<CategoryDTO>();
+        Map<String, Object> map = new HashMap<String, Object>();
 
-        while(categoryIterator.hasNext()){
-            categoryIterator.next();
-        }
+        map.put("size", categoriesSize);
+        map.put("items", categories);
 
-        return categoryDTO;
+        return map;
     }
 
 }

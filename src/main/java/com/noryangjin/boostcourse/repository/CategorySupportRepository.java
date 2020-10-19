@@ -8,4 +8,5 @@ public interface CategorySupportRepository {
 
     public List<Category> findAllCategories();
 
+    public long CategoriesSize();
 }

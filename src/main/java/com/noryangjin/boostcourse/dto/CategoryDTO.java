@@ -1,12 +1,7 @@
 package com.noryangjin.boostcourse.dto;
 
 import com.noryangjin.boostcourse.domain.Category;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
-
-import javax.persistence.Table;
+import lombok.*;
 
 public class CategoryDTO {
 
@@ -15,11 +10,17 @@ public class CategoryDTO {
 
         private Long id;
         private String name;
+        private Long count;
 
         public Categories(Category category){
             this.id = category.getId();
             this.name = category.getName();
         }
+
+        public void Counting(long count){
+            this.count = count;
+        }
+
 
     }
 
