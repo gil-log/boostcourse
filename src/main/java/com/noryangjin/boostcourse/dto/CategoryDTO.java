@@ -10,18 +10,12 @@ public class CategoryDTO {
 
         private Long id;
         private String name;
+        @Setter
         private Long count;
 
         public Categories(Category category){
             this.id = category.getId();
             this.name = category.getName();
         }
-
-        public void Counting(long count){
-            this.count = count;
-        }
-
-
     }
-
 }

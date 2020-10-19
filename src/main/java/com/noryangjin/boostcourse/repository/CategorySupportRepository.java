@@ -9,4 +9,6 @@ public interface CategorySupportRepository {
     public List<Category> findAllCategories();
 
     public long CategoriesSize();
+
+    public long CategoryCounting(long id);
 }

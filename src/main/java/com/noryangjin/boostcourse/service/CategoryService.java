@@ -32,6 +32,9 @@ public class CategoryService {
 
         while(categoryIterator.hasNext()){
             CategoryDTO.Categories categories = new CategoryDTO.Categories(categoryIterator.next());
+
+            categories.setCount(categoryRepo.CategoryCounting(categories.getId()));
+
             categoriesList.add(categories);
             //logger.info("DTO : " +categories.getId() +", "+categories.getName());
         }

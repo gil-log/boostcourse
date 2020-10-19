@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest
+@SpringBootTest
 @WebMvcTest(CategoryController.class)
 public class CategoryControllerTest {
 
@@ -32,6 +32,17 @@ public class CategoryControllerTest {
 
     @MockBean
     private CategoryService categoryService;
+
+    @MockBean
+    private CategoryRepository categoryRepository;
+
+    @Test
+    public void countingTest(){
+
+        long result = categoryRepository.CategoryCounting(2);
+
+        assertEquals(10, result);
+    }
 
     @Test
     public void queryDslTest(){
