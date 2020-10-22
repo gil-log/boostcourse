@@ -74,9 +74,6 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
             );
             displayInfos.setFileid(fileInfo.getId());
 
-
-
-
             displayInfosList.add(displayInfos);
             //logger.info("DTO : " +categories.getId() +", "+categories.getName());
         }
