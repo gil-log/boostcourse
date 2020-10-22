@@ -1,4 +1,4 @@
-package com.noryangjin.boostcourse.repository;
+package com.noryangjin.boostcourse.repository.user;
 
 import com.noryangjin.boostcourse.domain.User;
 import org.springframework.data.repository.CrudRepository;

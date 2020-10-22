@@ -1,8 +1,8 @@
 package com.noryangjin.boostcourse.controller;
 
 import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
-import com.noryangjin.boostcourse.service.CategoryService;
-import com.noryangjin.boostcourse.service.DisplayInfoService;
+import com.noryangjin.boostcourse.service.CategoryServiceImpl;
+import com.noryangjin.boostcourse.service.DisplayInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +18,10 @@ import java.util.Map;
 public class DisplayInfosController {
 
     @Autowired
-    CategoryService categoryService;
+    CategoryServiceImpl categoryService;
 
     @Autowired
-    DisplayInfoService displayInfoService;
+    DisplayInfoServiceImpl displayInfoService;
 
     @GetMapping
     public Map getDisplayInfos(@RequestParam(name="categoryid", required=false, defaultValue="0") long category_id,
@@ -35,6 +35,7 @@ public class DisplayInfosController {
 
         int productCount = displayInfos.size();
 
+        // categoryId, name, description, content, event, fileid
         map.put("totalCount", categoryCount);
 
         map.put("productCount", productCount);

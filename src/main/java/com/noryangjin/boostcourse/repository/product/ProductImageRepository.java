@@ -1,4 +1,4 @@
-package com.noryangjin.boostcourse.repository;
+package com.noryangjin.boostcourse.repository.product;
 
 import com.noryangjin.boostcourse.domain.ProductImage;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -2,6 +2,7 @@ package com.noryangjin.boostcourse.dto;
 
 import com.noryangjin.boostcourse.domain.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 public class DisplayInfoDTO {
 
     @Getter
+    @Setter
     public static class DisplayInfos{
 
         private long id;
@@ -42,23 +44,15 @@ public class DisplayInfoDTO {
             this.createDate = displayInfo.getCreate_date();
             this.modifyDate = displayInfo.getModify_date();
         }
-        public DisplayInfos(Category category, DisplayInfo displayInfo, FileInfo fileInfo, Product product){
-            this.id = displayInfo.getId();
-            this.categoryid = category.getId();
-            this.displayinfoid = displayInfo.getId();
-            this.name = category.getName();
+
+        public DisplayInfos(Product product){
             this.description = product.getDescription();
             this.content = product.getContent();
             this.event = product.getEvent();
-            this.openingHours = displayInfo.getOpening_hours();
-            this.placeName = displayInfo.getPlace_name();
-            this.placeLot = displayInfo.getPlace_lot();
-            this.placeStreet = displayInfo.getPlace_street();
-            this.tel = displayInfo.getTel();
-            this.homepage = displayInfo.getHomepage();
-            this.email = displayInfo.getEmail();
-            this.createDate = displayInfo.getCreate_date();
-            this.modifyDate = displayInfo.getModify_date();
+        }
+        public DisplayInfos(Category category, FileInfo fileInfo){
+            this.categoryid = category.getId();
+            this.name = category.getName();
             this.fileid = fileInfo.getId();
         }
 

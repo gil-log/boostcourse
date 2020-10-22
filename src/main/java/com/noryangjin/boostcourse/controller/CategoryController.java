@@ -1,15 +1,13 @@
 package com.noryangjin.boostcourse.controller;
 
-import com.noryangjin.boostcourse.domain.Category;
 import com.noryangjin.boostcourse.dto.CategoryDTO;
-import com.noryangjin.boostcourse.service.CategoryService;
+import com.noryangjin.boostcourse.service.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +16,7 @@ import java.util.Map;
 public class CategoryController {
 
     @Autowired
-    private CategoryService categoryService;
+    private CategoryServiceImpl categoryService;
 
     @GetMapping
     public Map getAllCategoires(){

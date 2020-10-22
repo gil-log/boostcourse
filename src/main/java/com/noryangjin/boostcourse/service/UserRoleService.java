@@ -1,7 +1,7 @@
 package com.noryangjin.boostcourse.service;
 
 import com.noryangjin.boostcourse.domain.UserRole;
-import com.noryangjin.boostcourse.repository.UserRoleRepository;
+import com.noryangjin.boostcourse.repository.user.UserRoleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

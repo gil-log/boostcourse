@@ -1,4 +1,4 @@
-package com.noryangjin.boostcourse.repository;
+package com.noryangjin.boostcourse.repository.reservation;
 
 import com.noryangjin.boostcourse.domain.ReservationInfo;
 import com.noryangjin.boostcourse.domain.ReservationUserComment;

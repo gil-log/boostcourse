@@ -1,4 +1,4 @@
-package com.noryangjin.boostcourse.repository;
+package com.noryangjin.boostcourse.repository.file;
 
 import com.noryangjin.boostcourse.domain.FileInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
