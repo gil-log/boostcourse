@@ -1,7 +1,6 @@
 package com.noryangjin.boostcourse.controller;
 
-import com.noryangjin.boostcourse.domain.Category;
-import com.noryangjin.boostcourse.repository.CategoryRepository;
+import com.noryangjin.boostcourse.repository.category.CategoryRepository;
 import com.noryangjin.boostcourse.service.CategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,16 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -2,7 +2,7 @@ package com.noryangjin.boostcourse.service;
 
 import com.noryangjin.boostcourse.domain.Category;
 import com.noryangjin.boostcourse.dto.CategoryDTO;
-import com.noryangjin.boostcourse.repository.CategoryRepository;
+import com.noryangjin.boostcourse.repository.category.CategoryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class CategoryService {
         while(categoryIterator.hasNext()){
             CategoryDTO.Categories categories = new CategoryDTO.Categories(categoryIterator.next());
 
-            categories.setCount(categoryRepo.CategoryCounting(categories.getId()));
+            categories.setCount(categoriesCount(categories.getId()));
 
             categoriesList.add(categories);
             //logger.info("DTO : " +categories.getId() +", "+categories.getName());
@@ -44,4 +44,9 @@ public class CategoryService {
     public Long CategoriesSize(){
         return categoryRepo.CategoriesSize();
     }
+
+    public Long categoriesCount(Long category_id){
+        return categoryRepo.CategoryCounting(category_id);
+    }
+
 }
