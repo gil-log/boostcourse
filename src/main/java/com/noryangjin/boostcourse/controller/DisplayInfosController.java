@@ -33,7 +33,11 @@ public class DisplayInfosController {
 
         List<DisplayInfoDTO.DisplayInfos> displayInfos = displayInfoService.findDisplayInfos(category_id, start);
 
+        int productCount = displayInfos.size();
+
         map.put("totalCount", categoryCount);
+
+        map.put("productCount", productCount);
 
         map.put("products", displayInfos);
 
