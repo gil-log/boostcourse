@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@Table
+@Table(name="product")
 @Entity
 public class Product {
 

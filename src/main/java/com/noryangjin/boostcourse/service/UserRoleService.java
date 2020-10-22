@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserRoleService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserRoleService.class);
 
     @Autowired
     UserRoleRepository userRoleRepo;

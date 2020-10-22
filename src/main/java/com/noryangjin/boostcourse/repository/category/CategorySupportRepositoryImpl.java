@@ -33,7 +33,6 @@ public class CategorySupportRepositoryImpl extends QuerydslRepositorySupport imp
 
     @Override
     public long CategoryCounting(long id) {
-        final QCategory category = QCategory.category;
         final QProduct product = QProduct.product;
         final QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
 

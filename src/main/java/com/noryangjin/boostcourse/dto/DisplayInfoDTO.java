@@ -29,6 +29,19 @@ public class DisplayInfoDTO {
         private LocalDateTime modifyDate;
         private long fileid;
 
+        public DisplayInfos(DisplayInfo displayInfo){
+            this.id = displayInfo.getId();
+            this.displayinfoid = displayInfo.getId();
+            this.openingHours = displayInfo.getOpening_hours();
+            this.placeName = displayInfo.getPlace_name();
+            this.placeLot = displayInfo.getPlace_lot();
+            this.placeStreet = displayInfo.getPlace_street();
+            this.tel = displayInfo.getTel();
+            this.homepage = displayInfo.getHomepage();
+            this.email = displayInfo.getEmail();
+            this.createDate = displayInfo.getCreate_date();
+            this.modifyDate = displayInfo.getModify_date();
+        }
         public DisplayInfos(Category category, DisplayInfo displayInfo, FileInfo fileInfo, Product product){
             this.id = displayInfo.getId();
             this.categoryid = category.getId();
