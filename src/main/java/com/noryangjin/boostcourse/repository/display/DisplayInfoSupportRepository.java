@@ -7,7 +7,15 @@ import java.util.List;
 
 public interface DisplayInfoSupportRepository {
 
+    // categoryid가 주어졌을때 DisplayInfo list
     public List<DisplayInfo> listCategoryId(Long categoryId, Pageable pageable);
 
+    // categoryid가 없을때 DisplayInfo List
+    public List<DisplayInfo> listNoCategoryId(Pageable pageable);
+
     public long findProductIdByDisplayInfoId(long displayInfo_id);
+
+    // DisplayInfo Count
+    public long countingDisplayInfo();
+
 }

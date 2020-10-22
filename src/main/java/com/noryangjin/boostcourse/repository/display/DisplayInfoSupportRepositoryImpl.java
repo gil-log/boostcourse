@@ -18,8 +18,6 @@ public class DisplayInfoSupportRepositoryImpl extends QuerydslRepositorySupport 
 
     @Override
     public List<DisplayInfo> listCategoryId(Long categoryId, Pageable pageable) {
-
-        final QCategory category = QCategory.category;
         final QProduct product = QProduct.product;
         final QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
 
@@ -40,11 +38,34 @@ public class DisplayInfoSupportRepositoryImpl extends QuerydslRepositorySupport 
     }
 
     @Override
+    public List<DisplayInfo> listNoCategoryId(Pageable pageable) {
+        final QProduct product = QProduct.product;
+        final QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
+
+        final JPQLQuery<DisplayInfo> query;
+
+        query = from(displayInfo)
+                ;
+
+        List<DisplayInfo> list = getQuerydsl().applyPagination(pageable, query).fetch();
+
+        return list;
+    }
+
+    @Override
     public long findProductIdByDisplayInfoId(long displayInfo_id) {
         final QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
         return from(displayInfo)
                 .select(displayInfo.product_id)
                 .where(displayInfo.id.eq(displayInfo_id))
                 .fetchOne();
+    }
+
+    @Override
+    public long countingDisplayInfo() {
+        QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
+
+        return from(displayInfo)
+                .fetchCount();
     }
 }

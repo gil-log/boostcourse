@@ -32,7 +32,7 @@ public class DisplayInfoDTO {
         private long fileid;
 
         public DisplayInfos(DisplayInfo displayInfo){
-            this.id = displayInfo.getId();
+            this.id = displayInfo.getProduct_id();
             this.displayinfoid = displayInfo.getId();
             this.openingHours = displayInfo.getOpening_hours();
             this.placeName = displayInfo.getPlace_name();

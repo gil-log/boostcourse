@@ -29,8 +29,12 @@ public class DisplayInfosController {
         Map<String, Object> map = new HashMap<>();
 
         // category_id = 0 일때 어떻게 할지 정해야한다.
-        Long categoryCount = categoryService.categoriesCount(category_id);
-
+        long categoryCount = 0;
+        if ( category_id==0){
+            categoryCount = displayInfoService.CoutingDisplayInfo();
+        } else{
+            categoryCount = categoryService.categoriesCount(category_id);
+        }
         List<DisplayInfoDTO.DisplayInfos> displayInfos = displayInfoService.findDisplayInfos(category_id, start);
 
         int productCount = displayInfos.size();

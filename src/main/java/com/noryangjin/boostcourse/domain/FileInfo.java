@@ -8,13 +8,12 @@ import java.time.LocalDateTime;
 
 @Getter
 @ToString
-@Table
+@Table(name="file_info")
 @Entity
 public class FileInfo {
 
     @Id
     @GeneratedValue
-    @Column(name = "file_id")
     private long id;
 
     private String file_name;
