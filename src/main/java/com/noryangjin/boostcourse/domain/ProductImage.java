@@ -7,8 +7,7 @@ import javax.persistence.*;
 import java.io.File;
 
 @Getter
-@ToString
-@Table
+@Table(name="product_image")
 @Entity
 public class ProductImage {
 

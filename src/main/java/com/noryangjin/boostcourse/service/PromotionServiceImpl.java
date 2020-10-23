@@ -1,12 +1,10 @@
 package com.noryangjin.boostcourse.service;
 
-import com.noryangjin.boostcourse.domain.Category;
-import com.noryangjin.boostcourse.domain.FileInfo;
-import com.noryangjin.boostcourse.domain.Product;
-import com.noryangjin.boostcourse.domain.Promotion;
+import com.noryangjin.boostcourse.domain.*;
 import com.noryangjin.boostcourse.dto.PromotionDTO;
 import com.noryangjin.boostcourse.repository.category.CategoryRepository;
 import com.noryangjin.boostcourse.repository.file.FileInfoRepository;
+import com.noryangjin.boostcourse.repository.product.ProductImageRepository;
 import com.noryangjin.boostcourse.repository.product.ProductRepository;
 import com.noryangjin.boostcourse.repository.promotion.PromotionRepository;
 import org.slf4j.Logger;
@@ -29,6 +27,9 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    ProductImageRepository productImageRepository;
 
     @Autowired
     CategoryRepository categoryRepository;
@@ -61,9 +62,8 @@ public class PromotionServiceImpl implements PromotionService {
             promotions.setCategoryName(category.get().getName());
 
             // FileInfo 관련 정보 입력
-
-            FileInfo fileInfo = fileInfoRepository.findByFileName(product.getId(), "ma_");
-            promotions.setFileid(fileInfo.getId());
+            ProductImage productImage = productImageRepository.findByProductIdAndType(product.getId(), "ma");
+            promotions.setFileid(productImage.getFile_id());
 
             promotionsList.add(promotions);
         }

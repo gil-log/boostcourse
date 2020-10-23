@@ -6,7 +6,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Getter
-@ToString
 @Table
 @Entity
 public class DisplayInfoImage {

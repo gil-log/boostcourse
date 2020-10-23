@@ -3,10 +3,12 @@ package com.noryangjin.boostcourse.service;
 import com.noryangjin.boostcourse.domain.DisplayInfo;
 import com.noryangjin.boostcourse.domain.FileInfo;
 import com.noryangjin.boostcourse.domain.Product;
+import com.noryangjin.boostcourse.domain.ProductImage;
 import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
 import com.noryangjin.boostcourse.repository.category.CategoryRepository;
 import com.noryangjin.boostcourse.repository.display.DisplayInfoRepository;
 import com.noryangjin.boostcourse.repository.file.FileInfoRepository;
+import com.noryangjin.boostcourse.repository.product.ProductImageRepository;
 import com.noryangjin.boostcourse.repository.product.ProductRepository;
 import com.noryangjin.boostcourse.util.PageRequest;
 import org.slf4j.Logger;
@@ -29,6 +31,9 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    ProductImageRepository productImageRepository;
 
     @Autowired
     CategoryRepository categoryRepository;
@@ -69,10 +74,9 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
             displayInfos.setName(categoryRepository.findById(category_id).getName());
 
             // file 관련 정보 입력
-            FileInfo fileInfo = fileInfoRepository.findByFileName(
-                    displayInfos.getId(), "ma_"
-            );
-            displayInfos.setFileid(fileInfo.getId());
+            ProductImage productImage = productImageRepository.findByProductIdAndType(product.getId(), "ma");
+
+            displayInfos.setFileid(productImage.getFile_id());
 
             displayInfosList.add(displayInfos);
             //logger.info("DTO : " +categories.getId() +", "+categories.getName());

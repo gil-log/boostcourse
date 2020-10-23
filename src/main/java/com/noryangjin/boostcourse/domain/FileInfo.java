@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@ToString
 @Table(name="file_info")
 @Entity
 public class FileInfo {
