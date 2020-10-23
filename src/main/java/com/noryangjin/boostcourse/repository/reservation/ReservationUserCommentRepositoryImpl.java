@@ -38,4 +38,13 @@ public class ReservationUserCommentRepositoryImpl extends QuerydslRepositorySupp
 
         return list;
     }
+
+    @Override
+    public long countReservationUserCommentByProductId(long productId) {
+        QReservationUserComment reservationUserComment = QReservationUserComment.reservationUserComment;
+
+        return from(reservationUserComment)
+                .where(reservationUserComment.product_id.eq(productId))
+                .fetchCount();
+    }
 }

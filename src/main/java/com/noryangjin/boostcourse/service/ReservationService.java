@@ -11,4 +11,7 @@ public interface ReservationService {
 
     // productId, start(페이징 위치)로 resrvationUserComments 구하기
     public List<ReservationDTO.ReservationUserComments> getReservationUserCommentsByProductId(long productId, int start);
+
+    // productId에 달린 댓글 개수 counting
+    public long countReservationUserCommentByProductId(long productId);
 }

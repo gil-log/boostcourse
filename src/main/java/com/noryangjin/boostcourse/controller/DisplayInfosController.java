@@ -47,6 +47,11 @@ public class DisplayInfosController {
             List<ReservationDTO.ReservationUserComments> reservationUserComments
                     = reservationService.getReservationUserCommentsByProductId(product_id, start);
 
+            long totalCount = reservationService.countReservationUserCommentByProductId(product_id);
+            long commentCount = reservationUserComments.size();
+
+            map.put("totalCount", totalCount);
+            map.put("commentCount", commentCount);
             map.put("reservationUserComments", reservationUserComments);
 
             return map;

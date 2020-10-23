@@ -46,4 +46,9 @@ public class ReservationServiceImpl implements ReservationService{
         }
         return reservationUserComments;
     }
+
+    @Override
+    public long countReservationUserCommentByProductId(long productId) {
+        return reservationUserCommentRepository.countReservationUserCommentByProductId(productId);
+    }
 }

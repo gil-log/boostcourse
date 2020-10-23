@@ -12,4 +12,7 @@ public interface ReservationUserCommentSupportRepository {
 
     // resrvationUserComment 얻기
     public List<ReservationUserComment> getReservationUserCommentByProductId(long productId, Pageable pageable);
+
+    // productId에 달린 댓글 개수 counting
+    public long countReservationUserCommentByProductId(long productId);
 }
