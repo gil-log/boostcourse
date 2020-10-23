@@ -1,8 +1,10 @@
 package com.noryangjin.boostcourse.controller;
 
 import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
+import com.noryangjin.boostcourse.dto.ProductDTO;
 import com.noryangjin.boostcourse.service.CategoryServiceImpl;
 import com.noryangjin.boostcourse.service.DisplayInfoServiceImpl;
+import com.noryangjin.boostcourse.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,9 @@ public class DisplayInfosController {
     @Autowired
     DisplayInfoServiceImpl displayInfoService;
 
+    @Autowired
+    ProductService productService;
+
     @GetMapping
     public Map getDisplayInfos(@RequestParam(name="categoryId", required=false, defaultValue="0") long category_id,
                                @RequestParam(name="start", required=false, defaultValue="0") int start,
@@ -34,9 +39,14 @@ public class DisplayInfosController {
         // displayId에 대한 로직
         if(display_id != 0){
 
+            // product 출력
             DisplayInfoDTO.DisplayInfos displayInfos = displayInfoService.findDisplayInfosByDisplayId(display_id);
 
+            // productImages 출력
+            ProductDTO.ProductImages productImages = productService.getProductImagesByProductId(displayInfos.getId());
+
             map.put("product", displayInfos);
+            map.put("productImages", productImages);
 
             return map;
 
