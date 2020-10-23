@@ -23,7 +23,7 @@ function moreDisplayInfo(){
                 infos += "<tr>\n" +
                     "                <td>"+products[i].name+"</td>\n" +
                     "                <td>"+products[i].placeName+"</td>\n" +
-                    "                <td>"+products[i].content+"</td>\n" + "</tr>\n"
+                    "                <td onclick=\"location.href=\'/api/displayinfos?displayId="+products[i].displayinfoid+"'\">"+products[i].content+"</td>\n" + "</tr>\n"
             }
 
             var html =
