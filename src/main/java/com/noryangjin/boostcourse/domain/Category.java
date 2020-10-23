@@ -3,6 +3,8 @@ package com.noryangjin.boostcourse.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Table(name = "category")
@@ -21,5 +23,8 @@ public class Category {
     public Category(String name){
         this.name = name;
     }
+
+    //@OneToMany(mappedBy = "Product", fetch = FetchType.EAGER)
+    //private List<Product> products = new ArrayList<>();
 
 }

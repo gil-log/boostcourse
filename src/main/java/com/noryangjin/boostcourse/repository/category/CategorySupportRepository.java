@@ -11,4 +11,7 @@ public interface CategorySupportRepository {
     public long CategoriesSize();
 
     public long CategoryCounting(long id);
+
+    public Category findById(long category_id);
+
 }

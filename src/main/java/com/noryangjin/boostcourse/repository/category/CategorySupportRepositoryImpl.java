@@ -46,4 +46,12 @@ public class CategorySupportRepositoryImpl extends QuerydslRepositorySupport imp
                         )
                 ).fetchCount();
     }
+
+    @Override
+    public Category findById(long category_id) {
+        QCategory category = QCategory.category;
+        return from(category)
+                .where(category.id.eq(category_id))
+                .fetchOne();
+    }
 }
