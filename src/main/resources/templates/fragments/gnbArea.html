@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div th:fragment="gnb">
+
+    <div class="row" th:object="${product}">
+        <div class="page-header">
+            <a th:href="@{/main}" class="btn btn-success waves-effect waves-light">예약</a>
+        </div>
+
+        <div >
+        <a style="float: left;" th:text="*{fileName}"></a>
+        </div>
+
+    </div>
+
+
+</div>
+
+</html>

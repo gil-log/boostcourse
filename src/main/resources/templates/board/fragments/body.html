@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<body th:fragment="main-body">
+		<div class="fixed-navbar">
+			<div class="pull-left">
+				<h1 class="page-title">Board</h1>
+			</div>
+		</div>
+		<!-- /.fixed-navbar -->
+
+		<div id="wrapper">
+			<div class="main-content">
+				<div class="row row-inline-block small-spacing">
+					<div class="col-xs-12">
+						<div class="box-content">
+							<div class="clearfix">
+								<h4 class="box-title pull-left"></h4>
+								<!-- /.box-title -->
+	
+								<th:block layout:fragment="search"></th:block>
+	
+							</div>
+							<!-- //.clearfix -->
+	
+							<th:block layout:fragment="content"></th:block>
+	
+							<th:block layout:fragment="paging"></th:block>
+						</div>
+						<!-- /.box-content -->
+						
+						<th:block layout:fragment="add-content"></th:block>
+
+					</div>
+					<!-- /.col-xs-12 -->
+				</div>
+				<!-- /.row row-inline-block small-spacing -->
+				<footer class="footer">
+					<ul class="list-inline">
+						<li>2016 © NinjaAdmin.</li>
+					</ul>
+				</footer>
+			</div>
+			<!-- /.main-content -->
+		</div>
+		<!-- /#wrapper -->
+
+		<script th:src="@{/scripts/jquery.min.js}"></script>
+		<script th:src="@{/plugin/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
+
+		<script th:src="@{/scripts/main.js}"></script>
+		<script th:src="@{/scripts/common.js}"></script>
+
+		<th:block layout:fragment="script"></th:block>
+	</body>
+</html>

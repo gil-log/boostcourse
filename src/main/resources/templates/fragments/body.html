@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<body th:fragment="main-body">
+
+	<div class="container">
+	<div th:replace="fragments/gnbArea :: gnb">
+
+	</div>
+
+	<div th:replace="fragments/promotionsArea :: promotions">
+
+	</div>
+
+	<div th:replace="fragments/categoryArea :: category">
+
+	</div>
+
+	<div th:replace="fragments/productListArea :: productList">
+
+	</div>
+
+	<div th:replace="fragments/plusArea :: plus">
+
+	</div>
+
+	</div>
+
+		<script th:src="@{/vendor/bootstrap/js/jquery.min.js}"></script>
+		<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/docs.min.js}"></script>
+<!--
+		<th:block layout:fragment="script"></th:block>-->
+	</body>
+</html>
