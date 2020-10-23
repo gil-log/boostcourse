@@ -1,9 +1,11 @@
 package com.noryangjin.boostcourse.dto;
 
 import com.noryangjin.boostcourse.domain.FileInfo;
+import com.noryangjin.boostcourse.domain.ProductPrice;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class ProductDTO {
@@ -33,5 +35,27 @@ public class ProductDTO {
         }
 
         public ProductImages(){}
+    }
+
+    @Getter
+    @Setter
+    public static class ProductPrices{
+        private long id;
+        private long productId;
+        private String priceTypeName;
+        private long price;
+        private BigDecimal discountRate;
+        private LocalDateTime createDate;
+        private LocalDateTime modifyDate;
+
+        public ProductPrices(ProductPrice productPrice){
+            this.id = productPrice.getId();
+            this.productId = productPrice.getProduct_id();
+            this.priceTypeName = productPrice.getPrice_type_name();
+            this.price = productPrice.getPrice();
+            this.discountRate = productPrice.getDiscount_rate();
+            this.createDate = productPrice.getCreate_date();
+            this.modifyDate = productPrice.getModify_date();
+        }
     }
 }

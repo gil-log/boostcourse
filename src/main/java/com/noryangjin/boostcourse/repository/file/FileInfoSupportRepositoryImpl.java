@@ -5,7 +5,9 @@ import com.noryangjin.boostcourse.domain.QFileInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(readOnly = true)
 public class FileInfoSupportRepositoryImpl  extends QuerydslRepositorySupport implements FileInfoSupportRepository{
 
     private static final Logger logger = LoggerFactory.getLogger(FileInfoSupportRepositoryImpl.class);

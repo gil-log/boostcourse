@@ -5,6 +5,7 @@ import com.noryangjin.boostcourse.dto.ProductDTO;
 import com.noryangjin.boostcourse.service.CategoryServiceImpl;
 import com.noryangjin.boostcourse.service.DisplayInfoServiceImpl;
 import com.noryangjin.boostcourse.service.ProductService;
+import com.noryangjin.boostcourse.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,9 @@ public class DisplayInfosController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    ReservationService reservationService;
+
     @GetMapping
     public Map getDisplayInfos(@RequestParam(name="categoryId", required=false, defaultValue="0") long category_id,
                                @RequestParam(name="start", required=false, defaultValue="0") int start,
@@ -48,9 +52,17 @@ public class DisplayInfosController {
             // displayInfoImages 출력
             DisplayInfoDTO.DisplayInfoImages displayInfoImages = displayInfoService.findDisplayInfoImagesByDisplayId(display_id);
 
+            // avgScore 얻기
+            int avgScore = (int) Math.round(reservationService.getAvgScoreByProductId(displayInfos.getId()));
+
+            // productPrices 얻기
+            List<ProductDTO.ProductPrices> productPrices = productService.findProductPriceByProductId(displayInfos.getId());
+
             map.put("product", displayInfos);
             map.put("productImages", productImages);
             map.put("displayInfoImages", displayInfoImages);
+            map.put("avgScore", avgScore);
+            map.put("productPrices", productPrices);
 
             return map;
 
