@@ -14,4 +14,7 @@ public interface DisplayInfoService {
 
     // 전시정보 개수 출력
     public long CoutingDisplayInfo();
+
+    // displayInfoImages 출력
+    public DisplayInfoDTO.DisplayInfoImages findDisplayInfoImagesByDisplayId(long displayId);
 }

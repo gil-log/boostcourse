@@ -45,8 +45,12 @@ public class DisplayInfosController {
             // productImages 출력
             ProductDTO.ProductImages productImages = productService.getProductImagesByProductId(displayInfos.getId());
 
+            // displayInfoImages 출력
+            DisplayInfoDTO.DisplayInfoImages displayInfoImages = displayInfoService.findDisplayInfoImagesByDisplayId(display_id);
+
             map.put("product", displayInfos);
             map.put("productImages", productImages);
+            map.put("displayInfoImages", displayInfoImages);
 
             return map;
 

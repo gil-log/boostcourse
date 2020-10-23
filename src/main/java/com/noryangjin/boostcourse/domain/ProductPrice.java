@@ -8,8 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
-@ToString
-@Table
+@Table(name = "product_price")
 @Entity
 public class ProductPrice {
 

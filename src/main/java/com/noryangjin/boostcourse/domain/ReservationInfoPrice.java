@@ -6,8 +6,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Getter
-@ToString
-@Table
+@Table(name = "reservation_info_price")
 @Entity
 public class ReservationInfoPrice {
 

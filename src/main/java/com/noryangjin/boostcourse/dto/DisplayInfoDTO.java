@@ -47,4 +47,33 @@ public class DisplayInfoDTO {
 
     }
 
+    @Getter
+    @Setter
+    public static class DisplayInfoImages{
+        private long id;
+        private long displayInfoId;
+        private long fileId;
+        private String fileName;
+        private String saveFileName;
+        private String contentType;
+        private long deleteFlag;
+        private LocalDateTime createDate;
+        private LocalDateTime modifyDate;
+
+        public DisplayInfoImages(DisplayInfoImage displayInfoImage){
+            this.id = displayInfoImage.getId();
+            this.displayInfoId = displayInfoImage.getDisplay_info_id();
+            this.fileId = displayInfoImage.getFile_id();
+        }
+
+        public DisplayInfoImages(FileInfo fileInfo){
+            this.fileId = fileInfo.getId();
+            this.fileName = fileInfo.getFile_name();
+            this.saveFileName = fileInfo.getSave_file_name();
+            this.contentType = fileInfo.getContent_type();
+            this.deleteFlag = fileInfo.getDelete_flag();
+            this.createDate = fileInfo.getCreate_date();
+            this.modifyDate = fileInfo.getModify_date();
+        }
+    }
 }

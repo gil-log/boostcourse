@@ -7,8 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@ToString
-@Table
+@Table(name = "reservation_info")
 @Entity
 public class ReservationInfo {
 

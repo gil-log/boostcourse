@@ -3,6 +3,7 @@ package com.noryangjin.boostcourse.service;
 import com.noryangjin.boostcourse.domain.*;
 import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
 import com.noryangjin.boostcourse.repository.category.CategoryRepository;
+import com.noryangjin.boostcourse.repository.display.DisplayInfoImageRepository;
 import com.noryangjin.boostcourse.repository.display.DisplayInfoRepository;
 import com.noryangjin.boostcourse.repository.file.FileInfoRepository;
 import com.noryangjin.boostcourse.repository.product.ProductImageRepository;
@@ -25,6 +26,9 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
 
     @Autowired
     DisplayInfoRepository displayInfoRepository;
+
+    @Autowired
+    DisplayInfoImageRepository displayInfoImageRepository;
 
     @Autowired
     ProductRepository productRepository;
@@ -115,5 +119,22 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
     @Override
     public long CoutingDisplayInfo() {
         return displayInfoRepository.countingDisplayInfo();
+    }
+
+    @Override
+    public DisplayInfoDTO.DisplayInfoImages findDisplayInfoImagesByDisplayId(long displayId) {
+
+        DisplayInfoImage displayInfoImage = displayInfoImageRepository.getDisplayInfoImageByDisplayInfoId(displayId);
+
+        FileInfo fileInfo = fileInfoRepository.findById(displayInfoImage.getFile_id());
+
+        // fileInfo 정보 입력
+        DisplayInfoDTO.DisplayInfoImages displayInfoImages = new DisplayInfoDTO.DisplayInfoImages(fileInfo);
+
+        //displayIfnoImage 정보 입력
+        displayInfoImages.setId(displayInfoImage.getId());
+        displayInfoImages.setDisplayInfoId(displayInfoImage.getDisplay_info_id());
+
+        return displayInfoImages;
     }
 }

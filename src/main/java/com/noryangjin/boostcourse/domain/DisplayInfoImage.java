@@ -6,7 +6,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Getter
-@Table
+@Table(name = "display_info_image")
 @Entity
 public class DisplayInfoImage {
 

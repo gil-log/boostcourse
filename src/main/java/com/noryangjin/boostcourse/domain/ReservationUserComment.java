@@ -8,8 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
-@ToString
-@Table
+@Table(name = "reservation_user_comment")
 @Entity
 public class ReservationUserComment {
 
