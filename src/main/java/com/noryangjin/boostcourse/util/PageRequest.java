@@ -7,9 +7,9 @@ public class PageRequest {
     private int size;
     private Sort.Direction direction;
 
-    public PageRequest(int start) {
+    public PageRequest(int start, int size) {
         setPage(start);
-        setSize(4);
+        setSize(size);
         setDirection(Sort.Direction.DESC);
     }
 
@@ -18,8 +18,8 @@ public class PageRequest {
     }
 
     public void setSize(int size) {
-        int DEFAULT_SIZE = 4;
-        int MAX_SIZE = 4;
+        int DEFAULT_SIZE = size;
+        int MAX_SIZE = size;
         this.size = size > MAX_SIZE ? DEFAULT_SIZE : size;
     }
 

@@ -2,6 +2,7 @@ package com.noryangjin.boostcourse.controller;
 
 import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
 import com.noryangjin.boostcourse.dto.ProductDTO;
+import com.noryangjin.boostcourse.dto.ReservationDTO;
 import com.noryangjin.boostcourse.service.CategoryServiceImpl;
 import com.noryangjin.boostcourse.service.DisplayInfoServiceImpl;
 import com.noryangjin.boostcourse.service.ProductService;
@@ -35,10 +36,21 @@ public class DisplayInfosController {
     @GetMapping
     public Map getDisplayInfos(@RequestParam(name="categoryId", required=false, defaultValue="0") long category_id,
                                @RequestParam(name="start", required=false, defaultValue="0") int start,
-                               @RequestParam(name="displayId", required = false, defaultValue = "0") long display_id){
+                               @RequestParam(name="displayId", required = false, defaultValue = "0") long display_id,
+                               @RequestParam(name="productId", required = false, defaultValue = "0") long product_id){
 
 
         Map<String, Object> map = new HashMap<>();
+
+        // productId에 대한 댓글 로직
+        if(product_id != 0){
+            List<ReservationDTO.ReservationUserComments> reservationUserComments
+                    = reservationService.getReservationUserCommentsByProductId(product_id, start);
+
+            map.put("reservationUserComments", reservationUserComments);
+
+            return map;
+        }
 
         // displayId에 대한 로직
         if(display_id != 0){
@@ -65,7 +77,6 @@ public class DisplayInfosController {
             map.put("productPrices", productPrices);
 
             return map;
-
         }
 
         // categoryId에 대한 로직

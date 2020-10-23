@@ -45,7 +45,7 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
     @Override
     public List<DisplayInfoDTO.DisplayInfos> findDisplayInfosByCategoryId(long categoryId, int start){
 
-        PageRequest pageRequest = new PageRequest(start);
+        PageRequest pageRequest = new PageRequest(start, 4);
 
         List<DisplayInfo> displayInfoList = new LinkedList<>();
 
