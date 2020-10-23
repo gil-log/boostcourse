@@ -53,6 +53,14 @@ public class DisplayInfoSupportRepositoryImpl extends QuerydslRepositorySupport 
     }
 
     @Override
+    public DisplayInfo getDisplayInfoByDisplayId(long displayId) {
+        QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
+        return from(displayInfo)
+                .where(displayInfo.id.eq(displayId))
+                .fetchOne();
+    }
+
+    @Override
     public long findProductIdByDisplayInfoId(long displayInfo_id) {
         final QDisplayInfo displayInfo = QDisplayInfo.displayInfo;
         return from(displayInfo)

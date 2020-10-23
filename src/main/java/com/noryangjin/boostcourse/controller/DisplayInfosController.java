@@ -24,18 +24,32 @@ public class DisplayInfosController {
     DisplayInfoServiceImpl displayInfoService;
 
     @GetMapping
-    public Map getDisplayInfos(@RequestParam(name="categoryid", required=false, defaultValue="0") long category_id,
-                               @RequestParam(name="start", required=false, defaultValue="0") int start){
+    public Map getDisplayInfos(@RequestParam(name="categoryId", required=false, defaultValue="0") long category_id,
+                               @RequestParam(name="start", required=false, defaultValue="0") int start,
+                               @RequestParam(name="displayId", required = false, defaultValue = "0") long display_id){
+
+
         Map<String, Object> map = new HashMap<>();
 
-        // category_id = 0 일때 어떻게 할지 정해야한다.
+        // displayId에 대한 로직
+        if(display_id != 0){
+
+            DisplayInfoDTO.DisplayInfos displayInfos = displayInfoService.findDisplayInfosByDisplayId(display_id);
+
+            map.put("product", displayInfos);
+
+            return map;
+
+        }
+
+        // categoryId에 대한 로직
         long categoryCount = 0;
         if ( category_id==0){
             categoryCount = displayInfoService.CoutingDisplayInfo();
         } else{
             categoryCount = categoryService.categoriesCount(category_id);
         }
-        List<DisplayInfoDTO.DisplayInfos> displayInfos = displayInfoService.findDisplayInfos(category_id, start);
+        List<DisplayInfoDTO.DisplayInfos> displayInfos = displayInfoService.findDisplayInfosByCategoryId(category_id, start);
 
         int productCount = displayInfos.size();
 

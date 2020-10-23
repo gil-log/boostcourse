@@ -1,9 +1,6 @@
 package com.noryangjin.boostcourse.service;
 
-import com.noryangjin.boostcourse.domain.DisplayInfo;
-import com.noryangjin.boostcourse.domain.FileInfo;
-import com.noryangjin.boostcourse.domain.Product;
-import com.noryangjin.boostcourse.domain.ProductImage;
+import com.noryangjin.boostcourse.domain.*;
 import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
 import com.noryangjin.boostcourse.repository.category.CategoryRepository;
 import com.noryangjin.boostcourse.repository.display.DisplayInfoRepository;
@@ -41,7 +38,8 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
     @Autowired
     FileInfoRepository fileInfoRepository;
 
-    public List<DisplayInfoDTO.DisplayInfos> findDisplayInfos(long categoryId, int start){
+    @Override
+    public List<DisplayInfoDTO.DisplayInfos> findDisplayInfosByCategoryId(long categoryId, int start){
 
         PageRequest pageRequest = new PageRequest(start);
 
@@ -84,6 +82,34 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
 
         return displayInfosList;
 
+    }
+
+    @Override
+    public DisplayInfoDTO.DisplayInfos findDisplayInfosByDisplayId(long displayId) {
+
+        DisplayInfo displayInfo = displayInfoRepository.getDisplayInfoByDisplayId(displayId);
+
+        DisplayInfoDTO.DisplayInfos displayInfos = new DisplayInfoDTO.DisplayInfos(displayInfo);
+
+        //Product 정보 입력
+        Product product = productRepository.findByProductId(displayInfos.getId());
+
+        displayInfos.setDescription(product.getDescription());
+        displayInfos.setContent(product.getContent());
+        displayInfos.setEvent(product.getEvent());
+        displayInfos.setCategoryid(product.getCategory_id());
+
+        //Category 정보 입력
+        Category category = categoryRepository.findById(displayInfos.getCategoryid());
+
+        displayInfos.setName(category.getName());
+
+        //file id 정보 입력
+        ProductImage productImage = productImageRepository.findByProductIdAndType(product.getId(), "ma");
+
+        displayInfos.setFileid(productImage.getFile_id());
+
+        return displayInfos;
     }
 
     @Override

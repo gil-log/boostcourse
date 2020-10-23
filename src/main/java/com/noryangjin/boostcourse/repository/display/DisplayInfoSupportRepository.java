@@ -13,6 +13,9 @@ public interface DisplayInfoSupportRepository {
     // categoryid가 없을때 DisplayInfo List
     public List<DisplayInfo> listNoCategoryId(Pageable pageable);
 
+    // displayId가 주어졌을때 DisplayInfo 출력
+    public DisplayInfo getDisplayInfoByDisplayId(long displayId);
+
     public long findProductIdByDisplayInfoId(long displayInfo_id);
 
     // DisplayInfo Count

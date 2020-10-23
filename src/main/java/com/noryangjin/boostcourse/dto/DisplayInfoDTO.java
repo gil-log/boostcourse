@@ -45,17 +45,6 @@ public class DisplayInfoDTO {
             this.modifyDate = displayInfo.getModify_date();
         }
 
-        public DisplayInfos(Product product){
-            this.description = product.getDescription();
-            this.content = product.getContent();
-            this.event = product.getEvent();
-        }
-        public DisplayInfos(Category category, FileInfo fileInfo){
-            this.categoryid = category.getId();
-            this.name = category.getName();
-            this.fileid = fileInfo.getId();
-        }
-
-
     }
+
 }
