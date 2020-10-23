@@ -13,6 +13,9 @@ public class ReservationServiceImpl implements ReservationService{
 
     @Override
     public Double getAvgScoreByProductId(long productId) {
-        return reservationUserCommentRepository.getAvgScoreByProductId(productId);
+
+        Double avgScore = reservationUserCommentRepository.getAvgScoreByProductId(productId);
+
+        return avgScore == null ? 0 : avgScore;
     }
 }
