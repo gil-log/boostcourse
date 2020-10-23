@@ -3,11 +3,14 @@
 
 <div th:fragment="plus">
 
+    <input type="hidden" id="startCount" value="2"/>
+    <input type="hidden" id="categoryId" value="0"/>
+
     <div class="jumbotron">
         <a>plus</a>
         <footer class="footer">
 
-            <a class="btn btn-info waves-effect waves-light" style="margin-right: auto; margin-left: auto;">더보기</a>
+            <button class="btn btn-info waves-effect waves-light" style="margin-right: auto; margin-left: auto;" onclick="moreDisplayInfo();">더보기</button>
 
             <a class="btn btn-default waves-effect waves-light"
                style="display:scroll;position:fixed;bottom:10px;right:10px;" href="#">TOP</a>

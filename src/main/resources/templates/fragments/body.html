@@ -15,6 +15,10 @@
 
 	</div>
 
+		<div th:replace="fragments/countingArea :: counting">
+
+		</div>
+
 	<div th:replace="fragments/productListArea :: productList">
 
 	</div>
@@ -25,9 +29,13 @@
 
 	</div>
 
-		<script th:src="@{/vendor/bootstrap/js/jquery.min.js}"></script>
+		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 		<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
 	<script th:src="@{/vendor/bootstrap/js/docs.min.js}"></script>
+
+	<!-- custom js -->
+	<script th:src="@{/js/categoryCounting.js}"></script>
+	<script th:src="@{/js/moreDisplayInfo.js}"></script>
 <!--
 		<th:block layout:fragment="script"></th:block>-->
 	</body>
