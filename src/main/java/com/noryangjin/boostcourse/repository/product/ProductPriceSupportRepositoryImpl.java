@@ -3,9 +3,11 @@ package com.noryangjin.boostcourse.repository.product;
 import com.noryangjin.boostcourse.domain.ProductPrice;
 import com.noryangjin.boostcourse.domain.QProductPrice;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional(readOnly = true)
 public class ProductPriceSupportRepositoryImpl extends QuerydslRepositorySupport implements ProductPriceSupportRepository {
 
     public ProductPriceSupportRepositoryImpl(){super(ProductPrice.class);}

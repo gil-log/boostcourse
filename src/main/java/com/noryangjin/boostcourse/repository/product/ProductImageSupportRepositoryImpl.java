@@ -3,7 +3,9 @@ package com.noryangjin.boostcourse.repository.product;
 import com.noryangjin.boostcourse.domain.ProductImage;
 import com.noryangjin.boostcourse.domain.QProductImage;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(readOnly = true)
 public class ProductImageSupportRepositoryImpl extends QuerydslRepositorySupport implements ProductImageSupportRepository {
 
     public ProductImageSupportRepositoryImpl(){super(ProductImage.class);}
