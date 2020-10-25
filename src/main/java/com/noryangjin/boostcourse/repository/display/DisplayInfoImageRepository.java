@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DisplayInfoImageRepository extends JpaRepository<DisplayInfoImage, Long>, DisplayInfoImageSupportRepositorya {
+public interface DisplayInfoImageRepository extends JpaRepository<DisplayInfoImage, Long>, DisplayInfoImageSupportRepository {
 
 }
-interface DisplayInfoImageSupportRepositorya {
+interface DisplayInfoImageSupportRepository {
 
     // displayInfoId로 displayInfoImage 출력
     public DisplayInfoImage getDisplayInfoImageByDisplayInfoId(long displayInfoId);
