@@ -10,18 +10,20 @@ import com.noryangjin.boostcourse.service.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("main")
 public class MainController {
 
     @Autowired
     PromotionService promotionService;
 
-    @RequestMapping("main")
-    public String main(Model model){
+    @GetMapping
+    public String getMain(Model model){
 
         // 로그인 후 로그인 유저 정보로 대체 예정 테스트용도임
         ProductDTO.ProductImages productImages = new ProductDTO.ProductImages();

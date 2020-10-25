@@ -1,12 +1,7 @@
 package com.noryangjin.boostcourse.controller;
 
-import com.noryangjin.boostcourse.dto.DisplayInfoDTO;
-import com.noryangjin.boostcourse.dto.ProductDTO;
-import com.noryangjin.boostcourse.dto.ReservationDTO;
-import com.noryangjin.boostcourse.service.CategoryServiceImpl;
-import com.noryangjin.boostcourse.service.DisplayInfoServiceImpl;
-import com.noryangjin.boostcourse.service.ProductService;
-import com.noryangjin.boostcourse.service.ReservationService;
+import com.noryangjin.boostcourse.dto.*;
+import com.noryangjin.boostcourse.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,22 +13,42 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/displayinfos")
-public class DisplayInfosController {
+@RequestMapping("/api/*")
+public class ApiController {
 
     @Autowired
-    CategoryServiceImpl categoryService;
+    private CategoryService categoryService;
 
     @Autowired
-    DisplayInfoServiceImpl displayInfoService;
+    private DisplayInfoService displayInfoService;
 
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
     @Autowired
-    ReservationService reservationService;
+    private ReservationService reservationService;
+
+    @Autowired
+    private PromotionService promotionService;
 
     @GetMapping
+    @RequestMapping("/categories")
+    public Map getAllCategoires(){
+
+        List<CategoryDTO.Categories> categories = categoryService.findAllCategories();
+
+        Long categoriesSize = categoryService.CategoriesSize();
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("size", categoriesSize);
+        map.put("items", categories);
+
+        return map;
+    }
+
+    @GetMapping
+    @RequestMapping("/displayinfos")
     public Map getDisplayInfos(@RequestParam(name="categoryId", required=false, defaultValue="0") long category_id,
                                @RequestParam(name="start", required=false, defaultValue="0") int start,
                                @RequestParam(name="displayId", required = false, defaultValue = "0") long display_id,
@@ -105,4 +120,17 @@ public class DisplayInfosController {
         return map;
     }
 
+    @GetMapping
+    @RequestMapping("/promotions")
+    public Map getPromotions(){
+
+        List<PromotionDTO.Promotions> promotions = promotionService.getPromotions();
+
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("size", promotions.size());
+        map.put("items", promotions);
+
+        return map;
+    }
 }
