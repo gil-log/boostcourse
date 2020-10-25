@@ -549,7 +549,7 @@ productPrices : 상품 가격 정보들
  
  - PageRequest : 페이징 Pageable 타입 변환 용도
  
- ### resources
+ ### Resources
  
  #### static
  
@@ -562,5 +562,4 @@ productPrices : 상품 가격 정보들
  - layout : basic.html 로 MainPage Layout, fragemnts(body.html, header.html) 통합
  
  - fragements
-    - body :  categoryArea.html(카테고리 영역), countingArea.html(개수 카운팅 영역), gnbArea.html(글로벌 탑 영역),<br> 
-    plusArea.html(하단 더보기 영역), productListArea.html(상품 리스트 영역), promotionArea.html(프로모션 영역) 통합
+    - body :  categoryArea.html(카테고리 영역), countingArea.html(개수 카운팅 영역), gnbArea.html(글로벌 탑 영역), plusArea.html(하단 더보기 영역), productListArea.html(상품 리스트 영역), promotionArea.html(프로모션 영역) 통합
