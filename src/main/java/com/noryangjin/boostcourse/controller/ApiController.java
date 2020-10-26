@@ -3,10 +3,7 @@ package com.noryangjin.boostcourse.controller;
 import com.noryangjin.boostcourse.dto.*;
 import com.noryangjin.boostcourse.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +48,6 @@ public class ApiController {
     @RequestMapping("/displayinfos")
     public Map getDisplayInfos(@RequestParam(name="categoryId", required=false, defaultValue="0") long category_id,
                                @RequestParam(name="start", required=false, defaultValue="0") int start,
-                               @RequestParam(name="displayId", required = false, defaultValue = "0") long display_id,
                                @RequestParam(name="productId", required = false, defaultValue = "0") long product_id){
 
 
@@ -68,33 +64,6 @@ public class ApiController {
             map.put("totalCount", totalCount);
             map.put("commentCount", commentCount);
             map.put("reservationUserComments", reservationUserComments);
-
-            return map;
-        }
-
-        // displayId에 대한 로직
-        if(display_id != 0){
-
-            // product 출력
-            DisplayInfoDTO.DisplayInfos displayInfos = displayInfoService.findDisplayInfosByDisplayId(display_id);
-
-            // productImages 출력
-            ProductDTO.ProductImages productImages = productService.getProductImagesByProductId(displayInfos.getId());
-
-            // displayInfoImages 출력
-            DisplayInfoDTO.DisplayInfoImages displayInfoImages = displayInfoService.findDisplayInfoImagesByDisplayId(display_id);
-
-            // avgScore 얻기
-            int avgScore = (int) Math.round(reservationService.getAvgScoreByProductId(displayInfos.getId()));
-
-            // productPrices 얻기
-            List<ProductDTO.ProductPrices> productPrices = productService.findProductPriceByProductId(displayInfos.getId());
-
-            map.put("product", displayInfos);
-            map.put("productImages", productImages);
-            map.put("displayInfoImages", displayInfoImages);
-            map.put("avgScore", avgScore);
-            map.put("productPrices", productPrices);
 
             return map;
         }
@@ -119,6 +88,38 @@ public class ApiController {
 
         return map;
     }
+
+    @GetMapping
+    @RequestMapping("/displayinfos/{displayId}")
+    public Map getDisplayInfosByDisplayId(@PathVariable(name = "displayId") long display_id){
+
+        Map<String, Object> map = new HashMap<>();
+
+        // product 출력
+        DisplayInfoDTO.DisplayInfos displayInfos = displayInfoService.findDisplayInfosByDisplayId(display_id);
+
+        // productImages 출력
+        ProductDTO.ProductImages productImages = productService.getProductImagesByProductId(displayInfos.getId());
+
+        // displayInfoImages 출력
+        DisplayInfoDTO.DisplayInfoImages displayInfoImages = displayInfoService.findDisplayInfoImagesByDisplayId(display_id);
+
+        // avgScore 얻기
+        int avgScore = (int) Math.round(reservationService.getAvgScoreByProductId(displayInfos.getId()));
+
+        // productPrices 얻기
+        List<ProductDTO.ProductPrices> productPrices = productService.findProductPriceByProductId(displayInfos.getId());
+
+        map.put("product", displayInfos);
+        map.put("productImages", productImages);
+        map.put("displayInfoImages", displayInfoImages);
+        map.put("avgScore", avgScore);
+        map.put("productPrices", productPrices);
+
+        return map;
+    }
+
+
 
     @GetMapping
     @RequestMapping("/promotions")
