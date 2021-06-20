@@ -79,7 +79,6 @@ public class ApiController {
 
         int productCount = displayInfos.size();
 
-        // categoryId, name, description, content, event, fileid
         map.put("totalCount", categoryCount);
 
         map.put("productCount", productCount);
