@@ -16,7 +16,6 @@
 
 ## API 설명
 
-
 - GET (카테고리 목록 구하기): /api/categories
   - 응답결과
 ```
