@@ -9,5 +9,4 @@ class BoostcourseApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
