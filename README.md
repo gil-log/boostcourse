@@ -155,7 +155,6 @@ productCount : 읽어온 전시 상품 수
 
 products : 전시 상품 정보
 
-
   - categoryId : 카테고리 아이디(0이거나 없을 경우 전체 조회) / 필수 No
   - start : 페이징 시작 위치(0이거나 없을 경우 1 페이지) / 필수 No
 
