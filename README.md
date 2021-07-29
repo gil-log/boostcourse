@@ -151,6 +151,7 @@ count : 카테고리에 포함된 전시 상품(display_info)의 수.
 ```
 totalCount : 해당 카테고리의 전시 상품 수
 
+
 productCount : 읽어온 전시 상품 수
 
 products : 전시 상품 정보
