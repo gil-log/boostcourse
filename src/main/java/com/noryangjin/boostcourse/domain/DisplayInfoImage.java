@@ -27,4 +27,5 @@ public class DisplayInfoImage {
     @ManyToOne
     @JoinColumn(name = "file_id", insertable = false, updatable = false)
     private FileInfo fileInfo;
+    
 }
