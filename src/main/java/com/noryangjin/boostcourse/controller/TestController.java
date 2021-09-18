@@ -10,13 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TestController {
-
-    @RequestMapping("/")
-    @ResponseBody
-    public String home(){
-        return "좋았어";
-    }
-
+    
     @RequestMapping("/ttt/{test}")
     @ResponseBody
     public String pathableTest(@PathVariable("test") String test){
