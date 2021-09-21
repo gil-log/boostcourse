@@ -27,6 +27,5 @@ public class TestControllerTest {
         mvc.perform(get("/"))
         .andExpect(status().isOk())
         .andExpect(content().string(result));
-
     }
 }
