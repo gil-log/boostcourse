@@ -27,7 +27,6 @@ public class SecurityTestController {
         mockMvc.perform(get("/logintest"))
                 .andExpect(status().isOk())
                 .andDo(print());
-
     }
 
 }
