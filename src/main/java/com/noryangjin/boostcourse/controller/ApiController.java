@@ -88,6 +88,7 @@ public class ApiController {
         return map;
     }
 
+   
     @GetMapping
     @RequestMapping("/displayinfos/{displayId}")
     public Map getDisplayInfosByDisplayId(@PathVariable(name = "displayId") long display_id){
@@ -117,7 +118,6 @@ public class ApiController {
 
         return map;
     }
-
 
 
     @GetMapping
