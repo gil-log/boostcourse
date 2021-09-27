@@ -11,18 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TestController {
     
-    @RequestMapping("/ttt/{test}")
-    @ResponseBody
-    public String pathableTest(@PathVariable("test") String test){
-        return test;
-    }
-
-    @RequestMapping("/ttt")
-    @ResponseBody
-    public String requestParamTest(@RequestParam("test") String test){
-        return test;
-    }
-
     @GetMapping("/logintest")
     public String loginTest() {
         return "test";
