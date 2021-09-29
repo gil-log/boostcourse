@@ -40,5 +40,6 @@ public class UserControllerTest {
         final ResultActions actions = mvc.perform(get("/user?email=kimmy@connect.co.kr"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(successResult));
+        
     }
 }
