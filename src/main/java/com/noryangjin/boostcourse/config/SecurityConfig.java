@@ -29,14 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
 
-        // static 디렉터리 하위 파일 목록 인증 무시, 항상 통과
         web.ignoring().antMatchers("/css/**", "/fonts/**", "/img/**", "/js/**", "/vendor/**");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                // 페이지의 권한 설정 부분
                 .antMatchers("/admin").hasRole("ROLE_ADMIN")
                 .antMatchers("/user/myinfo").hasRole("ROLE_USER")
                 .antMatchers("/**").permitAll()
@@ -51,7 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/user/logout/result")
                 .invalidateHttpSession(true)
                 .and()
-                // 403 권한 예외처리 핸들링 부분
                 .exceptionHandling().accessDeniedPage("/user/denied");
     }
 
