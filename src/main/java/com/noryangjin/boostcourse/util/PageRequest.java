@@ -26,7 +26,6 @@ public class PageRequest {
     public void setDirection(Sort.Direction direction) {
         this.direction = direction;
     }
-    // getter
 
     public org.springframework.data.domain.PageRequest of() {
         return org.springframework.data.domain.PageRequest.of(page -1, size);
