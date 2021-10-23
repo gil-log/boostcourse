@@ -1,6 +1,7 @@
 package com.noryangjin.boostcourse.util;
 
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.PageRequest;
 
 public class PageRequest {
     private int page;
@@ -27,7 +28,7 @@ public class PageRequest {
         this.direction = direction;
     }
 
-    public org.springframework.data.domain.PageRequest of() {
-        return org.springframework.data.domain.PageRequest.of(page -1, size);
+    public PageRequest of() {
+        return of(page -1, size);
     }
 }
