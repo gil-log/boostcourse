@@ -49,7 +49,6 @@ public class DisplayInfoServiceImpl implements DisplayInfoService{
 
         List<DisplayInfo> displayInfoList = new LinkedList<>();
 
-        // categoryid = 0 인 전체조회 경우 고려
         if(categoryId != 0 ){
             displayInfoList = displayInfoRepository.listCategoryId(categoryId, pageRequest.of());
         } else{
